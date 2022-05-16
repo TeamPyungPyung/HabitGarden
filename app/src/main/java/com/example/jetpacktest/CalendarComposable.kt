@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -19,18 +21,25 @@ class CalendarComposable : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            HistoryScreen()
+            HistoryScreen(SampleHabit.habitSample)
         }
     }
 }
 
 @Composable
-fun HistoryScreen() {
+fun HistoryScreen(habits: List<Habit>) {
     val calendarState = rememberSelectableCalendarState()
     Column {
         SelectableCalendar(calendarState = calendarState)
         Text("Hello")
         Text("${calendarState.selectionState.selection.joinToString { it.toString() }}")
+        if (calendarState.selectionState.selection.size != 0) {
+            Text("${calendarState.selectionState.selection[0].dayOfWeek.value}")
+        }
+        LazyColumn{
+            items(habits) { habit ->
+            HabitItem(habit = habit)
+        }}
     }
 }
 
@@ -41,6 +50,6 @@ fun HistoryScreen() {
 @Composable
 fun DefaultPreview2() {
     JetpackTestTheme {
-        HistoryScreen()
+        HistoryScreen(SampleHabit.habitSample)
     }
 }

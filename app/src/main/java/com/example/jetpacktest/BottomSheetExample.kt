@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpacktest.ui.theme.JetpackTestTheme
 import kotlinx.coroutines.launch
+import java.time.DayOfWeek
 import java.util.*
 
 class BottomSheetExample : ComponentActivity() {
@@ -121,11 +122,7 @@ fun BottomSheetScaffoldSample(habits: List<Habit>) {
     }
 }
 
-data class Habit(
-    val id: String = UUID.randomUUID().toString(),
-    val habitName: String ="",
-    var isAchieved: Boolean = false
-)
+
 
 @Composable
 fun HabitItem(habit: Habit) {
@@ -160,7 +157,7 @@ fun HabitList(habits: List<Habit>) {
 @Composable
 fun HabitItemPreview() {
     JetpackTestTheme() {
-        HabitItem(Habit(habitName = "test habit 1"))
+        HabitItem(Habit(habitName = "test habit 1", days = Days()))
     }
 }
 
