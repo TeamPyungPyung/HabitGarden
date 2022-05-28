@@ -157,7 +157,7 @@ fun HabitList(habits: List<Habit>) {
 @Composable
 fun HabitItemPreview() {
     JetpackTestTheme() {
-        HabitItem(Habit(habitName = "test habit 1", days = Days()))
+        HabitItem(Habit(habitName = "test habit 1", days = arrayOf(true, true, true, true, true, true, true)))
     }
 }
 
