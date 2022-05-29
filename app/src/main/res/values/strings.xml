@@ -2,4 +2,5 @@
     <string name="app_name">jetpackTest</string>
     <string name="title_activity_bottom_sheet_example">BottomSheetExample</string>
     <string name="title_activity_calendar_composable">CalendarComposable</string>
+    <string name="title_activity_all_todo_composable">AllTodoComposable</string>
 </resources>

@@ -144,6 +144,7 @@ fun HabitItem(habit: Habit) {
     }
 }
 
+// today habit. todo : show only today's habit.
 @Composable
 fun HabitList(habits: List<Habit>) {
     LazyColumn {

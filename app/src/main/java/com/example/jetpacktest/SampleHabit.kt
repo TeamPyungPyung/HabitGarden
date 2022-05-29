@@ -4,7 +4,7 @@ import java.util.*
 
 data class Habit(
     val id: String = UUID.randomUUID().toString(),
-    val habitName: String ="",
+    var habitName: String ="",
     var isAchieved: Boolean = false,
     var days: Array<Boolean> = arrayOf(false, false, false, false, false, false, false),
 )
